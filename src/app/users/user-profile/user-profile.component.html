@@ -1,0 +1,8 @@
+@if (user) {
+    <img [alt]="user.fullname" [src]="user.image" />
+    <h2>{{ user.fullname }}</h2>
+    <p>{{ user.bio }}</p>
+    <p>{{user.email}}</p>
+} @else {
+    <h1>User is not found</h1>
+} 
