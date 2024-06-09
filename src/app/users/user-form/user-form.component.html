@@ -1,9 +1,4 @@
-<div>
-  <!-- email: new FormControl(''),
-    bio: new FormControl(''),
-    fullname: new FormControl(''),
-    job: new FormControl(''),
-    salary: new FormControl(0), -->
+<div class="form">
   <input
     name="email"
     type="text"
@@ -29,7 +24,7 @@
     name="job"
     type="text"
     [formControl]="userData.job"
-    placeholder="Salary"
+    placeholder="Job"
   />
 
   <input
@@ -39,5 +34,24 @@
     placeholder="Salary"
   />
 
+  <div class="skills-wrapper">
+    @for (skill of skills; track skill) {
+    <!-- If skill is already there -->
+        @if (userData.skills.value?.includes(skill)) {
+        <button class="selected" (click)="removeUserSkill(skill)">
+        {{ skill }}
+        </button>
+        } @else {
+        <button class="not-selected" (click)="addSkillToUser(skill)">
+        {{ skill }}
+        </button>
+        }
+    }
+  </div>
+
   <button (click)="onSubmit()">Create User</button>
+
+  <!-- @for (email of defaultEmails; track email) {
+    <button (click)="setEmailFromDefault(email)">{{ email }}</button>
+  } -->
 </div>

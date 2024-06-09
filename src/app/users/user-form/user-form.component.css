@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  gap: 10px;
+}
+.form .skills-wrapper {
+  display: flex;
+  gap: 10px;
+}
+.form .skills-wrapper .selected {
+  background: lightblue;
+}
+.form .skills-wrapper .not-selected {
+  background: lightgrey;
+}
