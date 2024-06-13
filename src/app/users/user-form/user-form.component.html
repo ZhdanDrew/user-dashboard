@@ -1,4 +1,5 @@
 <div class="form">
+  <!-- <form [formGroup]="formGroup"> -->
   <input
     name="email"
     type="text"
@@ -37,19 +38,27 @@
   <div class="skills-wrapper">
     @for (skill of skills; track skill) {
     <!-- If skill is already there -->
-        @if (userData.skills.value?.includes(skill)) {
-        <button class="selected" (click)="removeUserSkill(skill)">
-        {{ skill }}
-        </button>
-        } @else {
-        <button class="not-selected" (click)="addSkillToUser(skill)">
-        {{ skill }}
-        </button>
-        }
-    }
+    @if (userData.skills.value?.includes(skill)) {
+    <button class="selected" (click)="removeUserSkill(skill)">
+      {{ skill }}
+    </button>
+    } @else {
+    <button class="not-selected" (click)="addSkillToUser(skill)">
+      {{ skill }}
+    </button>
+    } }
   </div>
 
-  <button (click)="onSubmit()">Create User</button>
+  <!-- Завдання:
+    Виводити кнопку з текстом Create User для адреси створення користувача
+    Та виводити кнопку Update User для адреси редагуавання користувача
+    (@if) isUpdate: boolean = false;
+ -->
+  <button (click)="onSubmit()">
+    {{ isUpdate ? "Update User" : "Create User" }}
+  </button>
+
+  <!-- </form> -->
 
   <!-- @for (email of defaultEmails; track email) {
     <button (click)="setEmailFromDefault(email)">{{ email }}</button>

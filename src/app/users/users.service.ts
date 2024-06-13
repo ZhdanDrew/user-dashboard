@@ -3,7 +3,7 @@ import { UserType } from './users.types';
 import { faker } from '@faker-js/faker';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   constructor() {
@@ -48,7 +48,17 @@ export class UsersService {
     return this.users.find((user) => user.id === id);
   }
 
-  
+  updateUser(user: UserType) {
+    // this.users = [...this.users.map((u) => {
+    //   if (u.id === user.id) {
+    //     return user;
+    //   }
+
+    //   return u;
+    // })];
+
+    this.users = this.users.map((u) => (u.id === user.id ? user : u));
+
+    return this.users;
+  }
 }
-
-

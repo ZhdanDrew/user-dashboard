@@ -6,8 +6,13 @@
         <h4>{{ user.fullname }}</h4>
         <p>{{ user.email }}</p>
         <span>{{ user.job }}</span>
+
+        @for (skill of user.skills; track skill) {
+            <span>{{ skill }}</span>
+        }
     </article>
     <a [routerLink]="user.id">User's profile</a>
+    <a [routerLink]="getEditUserLink(user.id)">Edit this user</a>
     <button (click)="usersService.deleteUser(user.id)">Delete this user</button>
 </div>
 }

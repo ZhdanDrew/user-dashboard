@@ -14,5 +14,6 @@ export const routes: Routes = [{
 {
     path: 'users/form/create',
     component: UserFormComponent
-}
+},
+{ path: 'users/form/update/:userId', component: UserFormComponent }
 ];
